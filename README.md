@@ -15,5 +15,7 @@ app
 ├── .eslintrc.json
 ├── docker-compose.yml
 ├── Dockerfile
-└── Makefile
+├── Makefile
+├── package-lock.json
+└── package.json
 ```
