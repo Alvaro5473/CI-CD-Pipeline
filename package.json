@@ -13,7 +13,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "",
-    "lint": "npx eslint src"
+    "lint": "npx eslint src/*.jsx"
   },
   "browserslist": {
     "production": [
