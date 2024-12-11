@@ -1,5 +1,7 @@
 # CI-CD-Pipeline
+
 ## Estructura del proyecto
+
 ```
 app
 │
@@ -19,7 +21,9 @@ app
 ├── package-lock.json
 └── package.json
 ```
+
 ## Comandos
+
 Instalar dependencias<br>
 `make install` `npm install`
 
@@ -30,7 +34,7 @@ Start<br>
 `make start` `npm start`
 
 Test<br>
-`make test` `npm test` `npx playwright`
+`make test` `npm test` `npx playwright test`
 
 Build<br>
 `make build` `npm run build`
