@@ -20,17 +20,23 @@ app
 └── package.json
 ```
 ## Comandos
-Instalar dependencias
+Instalar dependencias<br>
 `make install` `npm install`
-Linter
+
+Linter<br>
 `make lint` `npm run lint` `npx eslint src/*.jsx`
-Start
+
+Start<br>
 `make start` `npm start`
-Test
+
+Test<br>
 `make test` `npm test` `npx playwright`
-Build
+
+Build<br>
 `make build` `npm run build`
-All
+
+All<br>
 `make all`
-Docker
+
+Docker<br>
 `npm docker` `docker-compose up -d`
