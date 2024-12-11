@@ -39,4 +39,4 @@ All<br>
 `make all`
 
 Docker<br>
-`npm docker` `docker-compose up -d`
+`make docker` `docker-compose up -d`
