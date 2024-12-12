@@ -1,5 +1,5 @@
 resource "aws_instance" "tasks_app" {
-  ami           = "ami-0abcdef1234567890" # AMI de Amazon Linux o Ubuntu
+  ami           = "ami-0b939c899eec68c0d" # AMI de Amazon Linux o Ubuntu
   instance_type = "t2.micro"
   key_name      = var.key_name
 
