@@ -5,13 +5,14 @@
 
 # testing
 /coverage
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
 
 # production
 /build
+
+# terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
 
 # misc
 .DS_Store
