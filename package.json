@@ -12,7 +12,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "npx playwright test",
+    "test": "cd testing && npx playwright test && cd ..",
     "lint": "npx eslint src/*.jsx"
   },
   "browserslist": {

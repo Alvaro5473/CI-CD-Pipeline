@@ -9,11 +9,6 @@
 # production
 /build
 
-# terraform
-.terraform/
-.terraform.lock.hcl
-*.tfstate
-
 # misc
 .DS_Store
 .env.local

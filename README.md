@@ -34,7 +34,7 @@ Start<br>
 `make start` `npm start`
 
 Test<br>
-`make test` `npm test` `npx playwright test`
+`make test` `npm test` `cd testing && npx playwright test && cd ..`
 
 Build<br>
 `make build` `npm run build`
