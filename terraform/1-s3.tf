@@ -4,6 +4,12 @@ resource "aws_s3_bucket" "tasks-app" {
   tags = {
     "env" = "dev"
   }
+
+  lifecycle {
+    ignore_changes = [
+      bucket
+    ]
+  }
 }
 
 resource "aws_s3_bucket_website_configuration" "react-confg" {
