@@ -1,0 +1,80 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# Permisos necesarios para interactuar con AWS y el repositorio
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar linter con ESlint
+        run: npm run lint
+
+      - name: Ejecutar tests con Playwright
+        run: npm test
+
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Build de la aplicación
+        run: npm run build
+
+      - name: Configurar AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Configurar Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.7
+
+      - name: Inicializar Terraform
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: Validar configuración de Terraform
+        run: terraform validate
+        working-directory: ./terraform
+
+      - name: Desplegar con Terraform
+        run: terraform apply -auto-approve
+        working-directory: ./terraform
+
+      - name: Subir artefactos al bucket S3
+        run: aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }}
