@@ -1,5 +1,5 @@
 install:
-	npm install
+	npm install && cd testing && npm install && cd ..
 
 lint:
 	npm run lint
