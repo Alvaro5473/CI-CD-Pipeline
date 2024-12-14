@@ -71,25 +71,25 @@ El archivo `pipeline.yml`, ubicado en `.github/workflows/`, configura un workflo
 
 Como hemos visto, este proyecto utiliza NodeJS y cuenta con un Makefile, lo que significa que disponemos de una gran variedad de comandos para ejecutar acciones en local.
 
-- Instalar dependencias
+- Instalar dependencias<br>
   `make install` o `npm install && cd testing && npm install && cd ..`
 
-- Ejecutar el linter
+- Ejecutar el linter<br>
   `make lint` o `npm run lint` o `npx eslint src/*.jsx`
 
-- Iniciar la aplicación en local para desarrollo
+- Iniciar la aplicación en local para desarrollo<br>
   `make start` o `npm start`
 
-- Ejecutar los tests
+- Ejecutar los tests<br>
   `make test` o `npm test` o `cd testing && npx playwright test && cd ..`
 
-- Ejecutar el build de la aplicación
+- Ejecutar el build de la aplicación<br>
   `make build` o `npm run build`
 
-- Ejecutar todos los comandos anteriores por orden
+- Ejecutar todos los comandos anteriores por orden<br>
   `make all`
 
-- También tenemos la opción de levantar la aplicación con Docker
+- También tenemos la opción de levantar la aplicación con Docker<br>
   `make docker` o `docker-compose up -d`
 
 # Ciclo CI/CD
