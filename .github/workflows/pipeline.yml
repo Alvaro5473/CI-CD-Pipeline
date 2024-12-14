@@ -34,7 +34,12 @@ jobs:
             gstreamer1.0-plugins-bad \
             gstreamer1.0-libav \
             libavcodec-dev \
-            libx11-xcb1
+            libx11-xcb1 \
+            libevent-2.1-7\
+            libavif13 \
+            libhyphen0 \
+            libmanette-0.2-0 \
+            libgles2
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
