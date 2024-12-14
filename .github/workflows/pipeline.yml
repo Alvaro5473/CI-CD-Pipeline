@@ -106,7 +106,7 @@ jobs:
         working-directory: ./terraform
 
       - name: Validar configuración de Terraform
-        run: terraform validate
+        run: terraform plan
         working-directory: ./terraform
 
       - name: Desplegar con Terraform
@@ -114,4 +114,4 @@ jobs:
         working-directory: ./terraform
 
       - name: Subir artefactos al bucket S3
-        run: aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }}
+        run: aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }} --profile default
