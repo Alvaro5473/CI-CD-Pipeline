@@ -39,17 +39,25 @@ app
 
 ## Public
 
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+
 En este directorio podemos encontrar el archivo `index.html` del proyecto. Este archivo no hace nada de forma independiente. Para que la aplicación funcione, es necesario instalar las dependencias con `npm install` y construir la aplicación con `npm run build`. Esto genera una versión lista para producción que enlaza el HTML con el código JavaScript generado por React.
 
 ## SRC
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 Este directorio contiene el código fuente de la aplicación. `App.jsx` es el componente principal de la aplicación, que define su estructura y lógica principal. `App.css` los estilos asociados a la aplicación, usados para dar formato visual a los componentes. `index.js` es el punto de entrada donde React renderiza el componente `App` en el DOM, iniciando la aplicación.
 
 ## Linter
 
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+
 El archivo `.eslintrc.json` configura **ESLint**, una herramienta para analizar y asegurar la calidad del código. Define reglas y estándares que el código debe seguir, ayudando a detectar errores, inconsistencias y malas prácticas de forma automática durante el desarrollo.
 
 ## Testing
+
+![Playwright](https://img.shields.io/badge/-playwright-%232EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 
 **Playwright** permite realizar pruebas end-to-end confiables y rápidas en aplicaciones web, abarcando múltiples navegadores. Su capacidad para manejar interacciones complejas y simular entornos reales mejora la calidad del software, garantizando una experiencia consistente para los usuarios.
 
@@ -57,13 +65,25 @@ El archivo `.eslintrc.json` configura **ESLint**, una herramienta para analizar 
 
 ## Docker
 
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
 Esta carpeta permite simplificar el despliegue y la configuración del entorno del proyecto. El `Dockerfile` crea un contenedor portátil con todas las dependencias necesarias, mientras que el `docker-compose.yml` facilita la ejecución y orquestación del proyecto, agilizando tanto el desarrollo como la colaboración en equipo.
 
+## Terraform
+
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+
+Este contiene los scripts `0-main.tf` y `1-s3.tf`, necesarios para automatizar el despliegue de la aplicación en un bucket S3 de AWS. Con Terraform, se define la infraestructura como código, lo que garantiza un despliegue reproducible, escalable y fácil de gestionar.
+
 ## Makefile
+
+![Makefile](https://img.shields.io/badge/Makefile-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white)
 
 El archivo `Makefile` automatiza tareas y simplifica procesos repetitivos del desarrollo del proyecto. Estas tareas se explican en detalle más adelante.
 
 ## Pipeline
+
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
 El archivo `pipeline.yml`, ubicado en `.github/workflows/`, configura un workflow para GitHub Actions que automatiza el ciclo CI/CD del proyecto. Permite ejecutar pruebas, construir la aplicación y desplegarla de forma continua, asegurando calidad y agilidad en cada cambio realizado en el repositorio. Los pasos que sigue el ciclo se explican en detalle más adelante.
 
