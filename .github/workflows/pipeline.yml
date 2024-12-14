@@ -24,7 +24,7 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Instalar dependencias de linter
+      - name: Instalar dependencias
         run: npm ci
 
       - name: Ejecutar linter con ESlint
@@ -33,6 +33,10 @@ jobs:
       - name: Instalar dependencias de testing
         working-directory: ./testing
         run: npm ci
+
+      - name: Instalar navegadores Playwright
+        working-directory: ./testing
+        run: npx playwright install
 
       - name: Iniciar aplicación web en segundo plano
         run: npm start &
