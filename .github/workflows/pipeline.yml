@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: ["main"]
 
-# Permisos necesarios para interactuar con AWS y el repositorio
 permissions:
   contents: read
   id-token: write
@@ -70,7 +69,7 @@ jobs:
       - name: Ejecutar tests con Playwright
         run: npm test
 
-  build-and-deploy:
+  build:
     needs: test
     runs-on: ubuntu-latest
 
@@ -88,6 +87,25 @@ jobs:
 
       - name: Build de la aplicación
         run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: build/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+          path: build/
 
       - name: Configurar AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
