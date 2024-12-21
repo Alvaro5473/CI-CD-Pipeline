@@ -105,6 +105,16 @@ El archivo `Makefile` automatiza tareas y simplifica procesos repetitivos del de
 
 El archivo `pipeline.yml`, ubicado en `.github/workflows/`, configura un workflow para GitHub Actions que automatiza el ciclo CI/CD del proyecto. Permite ejecutar pruebas, construir la aplicación y desplegarla de forma continua, asegurando calidad y agilidad en cada cambio realizado en el repositorio. Los pasos que sigue el ciclo se explican en detalle más adelante.
 
+---
+
+## Trello
+
+![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+
+Para la planificación del proyecto se ha usado **Trello**, una herramienta que permite distribuir las tareas en `por hacer`, `en proceso` y `hecho`.
+
+![image](https://github.com/user-attachments/assets/ced6740a-9011-4612-b3a3-4dce25bc5b1a)
+
 # Comandos
 
 Como hemos visto, este proyecto utiliza NodeJS y cuenta con un Makefile, lo que significa que disponemos de una gran variedad de comandos para ejecutar acciones en local.
