@@ -1,5 +1,7 @@
 # Introducción
 
+Este proyecto consiste en la creación de un pipeline de despliegue automatizado que abarca todas las etapas de un ciclo CI/CD sobre una aplicación de gestión de tareas desarrollada en React.
+
 # Estructura del proyecto
 
 ```
