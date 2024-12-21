@@ -366,6 +366,6 @@ needs: test
 
 ### **Resumen del flujo**
 
-1. **Trabajo `test`:** Valida el código con ESlint y ejecuta pruebas automáticas con Playwright.
+1. **Trabajo `test`:** Valida el código con ESLint y ejecuta pruebas automáticas con Playwright.
 2. **Trabajo `build`:** Construye la aplicación si las pruebas pasan.
 3. **Trabajo `deploy`:** Despliega la aplicación en S3 usando AWS y Terraform.
