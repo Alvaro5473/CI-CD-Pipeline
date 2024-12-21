@@ -1,18 +1,3 @@
-# 0-main.tf
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.45.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "eu-west-1"
-}
-
-# 1-s3.tf
 data "aws_s3_bucket" "existing_tasks_app" {
   bucket = "tasks-app-alvarorivas"
 }
