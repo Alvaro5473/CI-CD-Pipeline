@@ -1,13 +1,24 @@
-resource "aws_s3_bucket" "tasks-app" {
-  bucket = "tasks-app-alvarorivas"
-
-  tags = {
-    "env" = "dev"
+# 0-main.tf
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.45.0"
+    }
   }
 }
 
+provider "aws" {
+  region = "eu-west-1"
+}
+
+# 1-s3.tf
+data "aws_s3_bucket" "existing_tasks_app" {
+  bucket = "tasks-app-alvarorivas"
+}
+
 resource "aws_s3_bucket_website_configuration" "react-confg" {
-  bucket = aws_s3_bucket.tasks-app.id
+  bucket = data.aws_s3_bucket.existing_tasks_app.id
 
   index_document {
     suffix = "index.html"
@@ -15,7 +26,7 @@ resource "aws_s3_bucket_website_configuration" "react-confg" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "bucket-ownership" {
-  bucket = aws_s3_bucket.tasks-app.id
+  bucket = data.aws_s3_bucket.existing_tasks_app.id
 
   rule {
     object_ownership = "BucketOwnerPreferred"
@@ -23,7 +34,7 @@ resource "aws_s3_bucket_ownership_controls" "bucket-ownership" {
 }
 
 resource "aws_s3_bucket_public_access_block" "bucket-public-access" {
-  bucket = aws_s3_bucket.tasks-app.id
+  bucket = data.aws_s3_bucket.existing_tasks_app.id
 
   block_public_acls       = false
   block_public_policy     = false
@@ -32,7 +43,7 @@ resource "aws_s3_bucket_public_access_block" "bucket-public-access" {
 }
 
 resource "aws_s3_bucket_acl" "bucket-acl" {
-  bucket = aws_s3_bucket.tasks-app.id
+  bucket = data.aws_s3_bucket.existing_tasks_app.id
   acl    = "public-read"
 
   depends_on = [

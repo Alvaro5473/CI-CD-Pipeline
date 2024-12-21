@@ -123,10 +123,6 @@ jobs:
         run: terraform init
         working-directory: ./terraform
 
-      - name: Importar bucket existente
-        run: terraform import aws_s3_bucket.tasks-app ${{ secrets.S3_BUCKET_NAME }}
-        working-directory: ./terraform
-
       - name: Validar configuración de Terraform
         run: terraform validate
         working-directory: ./terraform
