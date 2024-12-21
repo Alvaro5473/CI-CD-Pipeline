@@ -67,7 +67,11 @@ El archivo `.eslintrc.json` configura **ESLint**, una herramienta para analizar 
 
 **Playwright** permite realizar pruebas end-to-end confiables y rápidas en aplicaciones web, abarcando múltiples navegadores. Su capacidad para manejar interacciones complejas y simular entornos reales mejora la calidad del software, garantizando una experiencia consistente para los usuarios.
 
-1. Test 1
+1. **Test 1:** Verifica que la página muestra su contenido correctamente.
+2. **Test 2:** Verifica que se pueden añadir nuevas tareas.
+3. **Test 3:** Verifica que se pueden eliminar tareas.
+4. **Test 4:** Verifica que se no se puedan añadir tareas vacías.
+5. **Test 5:** Verifica que se pueden añadir varias tareas.
 
 ---
 
@@ -322,16 +326,7 @@ needs: test
 
    - Inicializa Terraform en el directorio `./terraform`.
 
-8. **Importar un bucket S3 existente:**
-
-   ```yaml
-   run: terraform import aws_s3_bucket.tasks-app ${{ secrets.S3_BUCKET_NAME }}
-   working-directory: ./terraform
-   ```
-
-   - Asocia un bucket S3 existente a Terraform.
-
-9. **Validar la configuración de Terraform:**
+8. **Validar la configuración de Terraform:**
 
    ```yaml
    run: terraform validate
@@ -340,16 +335,16 @@ needs: test
 
    - Verifica que la configuración de Terraform sea válida.
 
-10. **Desplegar la infraestructura:**
+9. **Desplegar la infraestructura:**
 
-    ```yaml
-    run: terraform apply -auto-approve
-    working-directory: ./terraform
-    ```
+   ```yaml
+   run: terraform apply -auto-approve
+   working-directory: ./terraform
+   ```
 
-    - Aplica los cambios de Terraform automáticamente.
+   - Aplica los cambios de Terraform automáticamente.
 
-11. **Subir artefactos al bucket S3:**
+10. **Subir artefactos al bucket S3:**
     ```yaml
     run: aws s3 sync ./build s3://${{ secrets.S3_BUCKET_NAME }}
     ```
@@ -359,7 +354,6 @@ needs: test
 
 ### **Resumen del flujo**
 
-1. **Trabajo `test`:** Valida el código (linter) y ejecuta pruebas automáticas con Playwright.
-2. **Trabajo `build-and-deploy`:**
-   - Construye la aplicación si las pruebas pasan.
-   - Despliega la aplicación en S3 usando AWS y Terraform.
+1. **Trabajo `test`:** Valida el código con ESlint y ejecuta pruebas automáticas con Playwright.
+2. **Trabajo `build`:** Construye la aplicación si las pruebas pasan.
+3. **Trabajo `deploy`:** Despliega la aplicación en S3 usando AWS y Terraform.
