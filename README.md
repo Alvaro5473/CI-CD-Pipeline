@@ -69,11 +69,11 @@ El archivo `.eslintrc.json` configura **ESLint**, una herramienta para analizar 
 
 **Playwright** permite realizar pruebas end-to-end confiables y rápidas en aplicaciones web, abarcando múltiples navegadores. Su capacidad para manejar interacciones complejas y simular entornos reales mejora la calidad del software, garantizando una experiencia consistente para los usuarios.
 
-1. **Test 1:** Verifica que la página muestra su contenido correctamente.
-2. **Test 2:** Verifica que se pueden añadir nuevas tareas.
-3. **Test 3:** Verifica que se pueden eliminar tareas.
-4. **Test 4:** Verifica que se no se puedan añadir tareas vacías.
-5. **Test 5:** Verifica que se pueden añadir varias tareas.
+1. **Test `has title`:** Verifica que la página muestra su contenido correctamente.
+2. **Test `can add a new task`:** Verifica que se pueden añadir nuevas tareas.
+3. **Test `can remove a task`:** Verifica que se pueden eliminar tareas.
+4. **Test `cannot add empty tasks`:** Verifica que se no se puedan añadir tareas vacías.
+5. **Test `can add multiple tasks`:** Verifica que se pueden añadir varias tareas.
 
 ---
 
